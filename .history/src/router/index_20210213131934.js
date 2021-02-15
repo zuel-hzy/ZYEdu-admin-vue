@@ -94,13 +94,13 @@ export const constantRoutes = [
       {
         path: 'list',
         name: '课程分类管理',
-        component: () => import('@/views/edu/subject/list'),
+        component: () => import('@/views/table/index'),
         meta: { title: '课程分类管理', icon: 'table' }
       },
       {
         path: 'add',
         name: '添加分类',
-        component: () => import('@/views/edu/subject/add'),
+        component: () => import('@/views/tree/index'),
         meta: { title: '添加分类', icon: 'el-icon-circle-plus-outline' }
       }
     ]

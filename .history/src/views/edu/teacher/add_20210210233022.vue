@@ -131,11 +131,10 @@ export default {
         },
         close(){
             this.imagecropperShow = false
-            this.imagecropperKey++
+            this.imagecropperKey+1
         },
         cropSuccess(data){
             this.imagecropperShow = false
-            this.imagecropperKey++
             // console.log(process.env)
             // console.log(this.BASE_API)
             this.teacher.avatar = data.url
