@@ -26,7 +26,7 @@ export default {
             data2: [],
             defaultProps: {
                 children: 'children',
-                label: 'title'
+                label: 'label'
             }
         };
     },
@@ -34,7 +34,7 @@ export default {
 
     },
     created() {
-        this.getSubject()
+        thisgetSubject()
     },
     mounted() {
 
@@ -47,13 +47,12 @@ export default {
     methods: {
         filterNode(value, data) {
             if (!value) return true
-            return data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1
+            return data.label.indexOf(value) !== -1
         },
         getSubject(){
             subject.getSubjectListPage()
                 .then(response=>{
-                    this.data2 = response.data.list;
-                    console.log(response)
+                    response.data.list = this.data2;
                 })
         }
     },

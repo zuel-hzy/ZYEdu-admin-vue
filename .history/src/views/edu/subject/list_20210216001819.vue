@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import subject from "@/api/edu/subject"
 export default {
     props: {
 
@@ -26,7 +25,7 @@ export default {
             data2: [],
             defaultProps: {
                 children: 'children',
-                label: 'title'
+                label: 'label'
             }
         };
     },
@@ -34,7 +33,7 @@ export default {
 
     },
     created() {
-        this.getSubject()
+
     },
     mounted() {
 
@@ -47,14 +46,7 @@ export default {
     methods: {
         filterNode(value, data) {
             if (!value) return true
-            return data.title.toLowerCase().indexOf(value.toLowerCase()) !== -1
-        },
-        getSubject(){
-            subject.getSubjectListPage()
-                .then(response=>{
-                    this.data2 = response.data.list;
-                    console.log(response)
-                })
+            return data.label.indexOf(value) !== -1
         }
     },
     components: {

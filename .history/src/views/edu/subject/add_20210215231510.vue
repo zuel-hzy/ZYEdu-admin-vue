@@ -79,8 +79,7 @@ export default {
                 this.$message({
                     type: 'success',
                     message: response.message    
-                })
-                this.$router.push({path:'/subject/list'})
+                })    
             }
         },
         submitUpload(){

@@ -63,7 +63,22 @@ export default {
 
     },
     methods: {
+        fileUploadSuccess(){
+            this.importBtnDisabled = true
+            this.loading = true
+            this.$refs.upload.submit()
+        },
         fileUploadError(response){
+            if (response.success ===  true) {       
+                this.fileUploadBtnText = '导入成功'       
+                this.loading = false       
+                this.$message({
+                    type: 'success',
+                    message: response.message    
+                })    
+            }
+        },
+        submitUpload(response){
             console.log(response)
             this.fileUploadBtnText = '导入失败'       
             this.loading = false       
@@ -71,22 +86,6 @@ export default {
                 type: 'error',       
                 message: '导入失败'    
             })
-        },
-        fileUploadSuccess(response){
-            if (response.success ===  true) {       
-                this.fileUploadBtnText = '导入成功'       
-                this.loading = false       
-                this.$message({
-                    type: 'success',
-                    message: response.message    
-                })
-                this.$router.push({path:'/subject/list'})
-            }
-        },
-        submitUpload(){
-            this.importBtnDisabled = true
-            this.loading = true
-            this.$refs.upload.submit()
         },
     },
     components: {
