@@ -93,9 +93,9 @@ export const constantRoutes = [
     children: [
       {
         path: 'list',
-        name: '课程分类列表',
+        name: '课程分类管理',
         component: () => import('@/views/edu/subject/list'),
-        meta: { title: '课程分类列表', icon: 'tree' }
+        meta: { title: '课程分类管理', icon: 'table' }
       },
       {
         path: 'add',
@@ -114,29 +114,15 @@ export const constantRoutes = [
     children: [
       {
         path: 'list',
-        name: '课程列表',
-        component: () => import('@/views/edu/course/list'),
-        meta: { title: '课程列表', icon: 'el-icon-tickets' }
+        name: '课程管理',
+        component: () => import('@/views/table/index'),
+        meta: { title: '课程管理', icon: 'table' }
       },
       {
-        path: 'info/:id',
+        path: 'add',
         name: '添加课程',
-        component: () => import('@/views/edu/course/info'),
+        component: () => import('@/views/tree/index'),
         meta: { title: '添加课程', icon: 'el-icon-circle-plus-outline' }
-      },
-      {
-        path: 'chapter/:id',
-        name: '编辑章节',
-        component: () => import('@/views/edu/course/chapter'),
-        meta: { title: '编辑章节', noCache: true },
-        hidden:true
-      },
-      {
-        path: 'publish/:id',
-        name: '发布课程',
-        component: () => import('@/views/edu/course/publish'),
-        meta: { title: '发布课程', noCache: true },
-        hidden:true
       }
     ]
   },

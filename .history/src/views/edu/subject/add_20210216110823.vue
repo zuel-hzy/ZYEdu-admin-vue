@@ -16,7 +16,7 @@
                     :on-error="fileUploadError"
                     :disabled="importBtnDisabled"
                     :limit="1"
-                    :action="BASE_API+'/edu/edu-subject/addSubject'"
+                    :action="BASE_API+'/edu-subject/addSubject'"
                     name="file">
                 <el-button 
                     slot="trigger" 

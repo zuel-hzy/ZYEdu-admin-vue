@@ -119,7 +119,7 @@ export const constantRoutes = [
         meta: { title: '课程列表', icon: 'el-icon-tickets' }
       },
       {
-        path: 'info/:id',
+        path: 'add',
         name: '添加课程',
         component: () => import('@/views/edu/course/info'),
         meta: { title: '添加课程', icon: 'el-icon-circle-plus-outline' }
