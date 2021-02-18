@@ -203,7 +203,7 @@ export default {
             chapter.getChapterVideo(id)
                 .then(response=>{
                     this.chapterVideoList = response.data.chapterVideo
-                    console.log(this.chapterVideoList)
+                    // console.log(this.chapterVideoList)
                 })
         },
         openChapterDialog() {
@@ -265,13 +265,8 @@ export default {
                 })
         },
         cleanVideoDialog(){
-            this.fileList = []
-            this.video.id = ""
             this.video.title = ""
             this.video.sort = ""
-            this.video.isFree = ""
-            this.video.videoSourceId = ""
-            this.video.videoOriginalName = ""
         },
         saveOrUpdateVideo() {
             if(this.video.id){
@@ -309,19 +304,7 @@ export default {
             this.video.videoSourceId = response.data.videoId
         },
         handleVodRemove(){
-            video.deleteAiyunVideo(this.video.videoSourceId)
-                .then(response=>{
-                    this.$message({
-                        type: 'success',
-                        message: "视频删除成功"
-                    })
-                    this.fileList = []
-                    this.video.videoSourceId = ""
-                    this.video.videoOriginalName = ""
-                })
-        },
-        beforeVodRemove(file, fileList){
-            return this.$confirm(`确定移除 ${ file.name }？`)
+
         }
     },
     components: {

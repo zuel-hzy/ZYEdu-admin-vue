@@ -265,13 +265,8 @@ export default {
                 })
         },
         cleanVideoDialog(){
-            this.fileList = []
-            this.video.id = ""
             this.video.title = ""
             this.video.sort = ""
-            this.video.isFree = ""
-            this.video.videoSourceId = ""
-            this.video.videoOriginalName = ""
         },
         saveOrUpdateVideo() {
             if(this.video.id){
@@ -316,8 +311,6 @@ export default {
                         message: "视频删除成功"
                     })
                     this.fileList = []
-                    this.video.videoSourceId = ""
-                    this.video.videoOriginalName = ""
                 })
         },
         beforeVodRemove(file, fileList){

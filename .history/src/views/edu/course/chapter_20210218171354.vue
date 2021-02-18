@@ -265,7 +265,6 @@ export default {
                 })
         },
         cleanVideoDialog(){
-            this.fileList = []
             this.video.id = ""
             this.video.title = ""
             this.video.sort = ""

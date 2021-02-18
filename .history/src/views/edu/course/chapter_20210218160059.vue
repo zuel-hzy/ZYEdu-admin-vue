@@ -83,7 +83,7 @@
                 :before-remove="beforeVodRemove"
                 :on-exceed="handleUploadExceed"
                 :file-list="fileList"
-                :action="BASE_API+'/vod/video/uploadVideo'"
+                :action="BASE_API+'/eduvod/video/uploadAlyiVideo'"
                 :limit="1"
                 class="upload-demo">
             <el-button size="small" type="primary" @click="uploadVideo">上传视频</el-button>
@@ -133,7 +133,7 @@ export default {
                 videoOriginalName:''//视频名称
             },
             fileList:[],
-            BASE_API:process.env.VUE_APP_BASE_API
+            BASE_API:process.env.APP_VUE_BASE_API
         }
     },
     computed: {
@@ -153,7 +153,7 @@ export default {
 
     },
     methods: {
-        //======================================== 章节 ============================
+        //======================================== 章节
         saveChapter(){
             this.chapter.courseId = this.courseID
             chapter.addChapter(this.chapter)
@@ -203,7 +203,7 @@ export default {
             chapter.getChapterVideo(id)
                 .then(response=>{
                     this.chapterVideoList = response.data.chapterVideo
-                    console.log(this.chapterVideoList)
+                    // console.log(this.chapterVideoList)
                 })
         },
         openChapterDialog() {
@@ -232,7 +232,7 @@ export default {
             
         },
 
-        //=================================小节==================================
+        //=================================小节
         openVideoDialog(chapterId) {
             //弹框
             this.dialogVideoFormVisible = true
@@ -265,13 +265,8 @@ export default {
                 })
         },
         cleanVideoDialog(){
-            this.fileList = []
-            this.video.id = ""
             this.video.title = ""
             this.video.sort = ""
-            this.video.isFree = ""
-            this.video.videoSourceId = ""
-            this.video.videoOriginalName = ""
         },
         saveOrUpdateVideo() {
             if(this.video.id){
@@ -303,25 +298,6 @@ export default {
                 })
             })
             
-        },
-        //=========================视频==============================
-        handleVodUploadSuccess(response,file,fileList){
-            this.video.videoSourceId = response.data.videoId
-        },
-        handleVodRemove(){
-            video.deleteAiyunVideo(this.video.videoSourceId)
-                .then(response=>{
-                    this.$message({
-                        type: 'success',
-                        message: "视频删除成功"
-                    })
-                    this.fileList = []
-                    this.video.videoSourceId = ""
-                    this.video.videoOriginalName = ""
-                })
-        },
-        beforeVodRemove(file, fileList){
-            return this.$confirm(`确定移除 ${ file.name }？`)
         }
     },
     components: {
